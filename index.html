@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-title" content="SpideyFiesta">
     <meta name="theme-color" content="#e62429">
     <meta name="msapplication-TileColor" content="#e62429">
-    <title>🕷️ Spidey-Fiesta de Mateo! 🕸️</title>
+    <title>🕷️ Spidey-Fiesta Mateo 2! 🕸️</title>
     <link rel="apple-touch-icon" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9Ijk2IiBmaWxsPSIjRTAyNDI5Ii8+CjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9IjgwIiBmaWxsPSIjRkZGRkZGIi8+CjxjaXJjbGUgY3g9IjcwIiBjeT0iNjUiIHI9IjE1IiBmaWxsPSIjMDA1RkFBIi8+CjxjaXJjbGUgY3g9IjEyMiIgY3k9IjY1IiByPSIxNSIgZmlsbD0iIzAwNUZBQSIvPgo8L3N2Zz4=">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     
@@ -32,10 +32,7 @@
             user-select: none;
         }
 
-        html {
-            height: 100%;
-            touch-action: manipulation;
-        }
+        html { height: 100%; touch-action: manipulation; }
 
         body {
             font-family: 'Open Sans', sans-serif;
@@ -49,7 +46,7 @@
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-            font-size: 16px; /* Base para rem */
+            font-size: 16px;
         }
 
         @keyframes galaxyShift {
@@ -57,58 +54,64 @@
             50% { background-position: 100% 50%, 100% 0%, 0% 100%; }
         }
 
-        /* TOUCH FRIENDLY BUTTONS */
+        /* TOUCH FRIENDLY */
         .touch-btn {
-            min-height: 56px;
-            min-width: 56px;
-            padding: 16px 24px;
-            font-size: 18px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 56px; min-width: 56px;
+            padding: 16px 24px; font-size: 18px;
+            border-radius: 12px; display: inline-flex;
+            align-items: center; justify-content: center;
             touch-action: manipulation;
         }
 
-        /* AUDIO TOGGLE MOBILE */
-        .audio-toggle {
-            position: fixed; top: 20px; right: 20px;
-            width: 60px; height: 60px;
-            background: linear-gradient(45deg, var(--spidey-red), var(--spidey-blue));
-            color: white; border: none; border-radius: 50%;
-            font-size: 1.4rem; z-index: 1001;
-            box-shadow: 0 8px 25px rgba(230,36,41,0.6);
-            animation: pulse 2s infinite;
-            cursor: pointer;
-        }
-
-        .audio-toggle:active { transform: scale(0.95); }
-
-        /* COUNTDOWN MOBILE OPTIMIZED */
+        /* COUNTDOWN COMPLETO MOBILE */
         .countdown {
             position: fixed; top: 90px; right: 20px;
-            background: rgba(0,0,0,0.95); backdrop-filter: blur(20px);
-            padding: 16px 20px; border-radius: 16px;
-            border: 2px solid var(--neon-glow);
-            box-shadow: 0 0 25px var(--neon-glow);
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(25px);
+            padding: 20px 24px; border-radius: 20px;
+            border: 3px solid var(--neon-glow);
+            box-shadow: 0 0 30px var(--neon-glow);
             font-family: 'Orbitron', monospace;
             text-align: center; z-index: 1000;
-            min-width: 140px;
+            min-width: 180px; max-width: 200px;
+            animation: countdownFloat 3s ease-in-out infinite;
         }
 
         .countdown h3 {
-            font-size: 0.75rem; color: var(--neon-glow);
-            margin-bottom: 8px; letter-spacing: 2px; opacity: 0.9;
+            font-size: 0.8rem; color: var(--neon-glow);
+            margin-bottom: 12px; letter-spacing: 3px;
+            text-transform: uppercase; opacity: 0.95;
         }
 
-        .countdown .time {
-            font-size: 1.4rem; font-weight: 700;
+        .countdown .time-display {
+            display: flex; gap: 8px; justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
             background: linear-gradient(45deg, var(--spidey-red), var(--spidey-blue));
+            padding: 8px 12px; border-radius: 12px;
+            font-size: 1.1rem; font-weight: 700;
+            min-width: 45px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* HEADER FULLSCREEN MOBILE */
+        .time-label {
+            font-size: 0.65rem; opacity: 0.8;
+            margin-top: 2px; letter-spacing: 1px;
+        }
+
+        @keyframes countdownFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* HEADER */
         header {
             background: linear-gradient(135deg, 
                 rgba(230,36,41,0.98), 
@@ -129,7 +132,6 @@
         .spidey-logo {
             font-size: 5rem; margin-bottom: 20px;
             animation: swingMobile 2s ease-in-out infinite;
-            display: block;
         }
 
         @keyframes swingMobile {
@@ -154,7 +156,7 @@
             to { filter: drop-shadow(0 0 25px var(--web-glow)) drop-shadow(0 0 40px var(--spidey-blue)); }
         }
 
-        /* CONTAINER MOBILE FIRST */
+        /* CONTAINER */
         .container {
             max-width: 100%; margin: 0 15px 40px;
             padding: 30px 25px; background: rgba(255,255,255,0.06);
@@ -172,7 +174,7 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* INFO CARDS MOBILE */
+        /* INFO CARDS */
         .info-card {
             margin-bottom: 30px; padding: 25px 20px;
             background: linear-gradient(135deg, 
@@ -180,7 +182,6 @@
                 rgba(0,90,171,0.12));
             border-radius: 20px; border: 2px solid rgba(255,255,255,0.15);
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .info-card:active {
@@ -203,7 +204,7 @@
             color: var(--neon-glow); font-size: 1.3em;
         }
 
-        /* BOTÓN WHATSAPP GIGANTE MOBILE */
+        /* BOTÓN WHATSAPP */
         .btn-confirm {
             display: block; width: 100%; max-width: 350px;
             margin: 30px auto; background: linear-gradient(45deg, #25d366, #128c7e, #00ff88);
@@ -234,7 +235,7 @@
             box-shadow: 0 10px 30px rgba(37,211,102,0.6);
         }
 
-        /* MAPA MOBILE */
+        /* MAPA */
         .map-container {
             margin: 25px 0; height: 280px; border-radius: 20px;
             overflow: hidden; position: relative;
@@ -256,7 +257,7 @@
             transform: scale(0.98);
         }
 
-        /* TELARAÑAS OPTIMIZADAS MOBILE */
+        /* TELARAÑAS Y PARTICULAS */
         .spider-webs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         .web { 
             position: absolute; width: 100px; height: 100px;
@@ -275,7 +276,6 @@
             50% { transform: translate(15px,-10px) rotate(180deg) scale(1.1); }
         }
 
-        /* PARTICULAS LIGERAS MOBILE (solo 40) */
         .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
         .particle {
             position: absolute; width: 4px; height: 4px;
@@ -290,44 +290,57 @@
             100% { transform: translateY(-50px) scale(0); opacity: 0; }
         }
 
-        /* FOOTER MOBILE */
+        /* FOOTER */
         footer {
             padding: 30px 20px; font-size: 1rem;
             color: rgba(255,255,255,0.9); text-align: center;
             margin-top: 30px;
         }
 
-        /* PERFORMANCE MOBILE */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-        }
-
-        /* RESPONSIVE EXTREMO */
+        /* RESPONSIVE */
         @media (max-width: 480px) {
             .container { margin: 0 10px 30px; padding: 25px 20px; }
             .info-card { padding: 20px 15px; margin-bottom: 25px; }
-            .countdown { right: 15px; top: 85px; padding: 14px 16px; }
+            .countdown { right: 15px; top: 85px; padding: 18px 22px; min-width: 160px; }
             .map-container { height: 250px; }
             header { padding: 70px 15px 50px; }
         }
 
-        /* LANDSCAPE MOBILE */
         @media (max-height: 500px) and (orientation: landscape) {
             header { padding: 40px 20px 30px; }
             .container { margin: 20px 15px 20px; padding: 20px; }
-            .countdown { top: 20px; right: 20px; }
-            .audio-toggle { top: 20px; right: 90px; }
+            .countdown { top: 20px; right: 20px; padding: 16px 20px; }
+            .audio-toggle { top: 20px; right: 200px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
-    <!-- AUDIO TOGGLE -->
-    <button class="audio-toggle touch-btn" id="audioToggle">🔊</button>
 
-    <!-- COUNTDOWN -->
+    <!-- COUNTDOWN COMPLETO -->
     <div class="countdown" id="countdown">
-        <h3>⏰ SPIDEY</h3>
-        <div class="time" id="timeDisplay">--:--</div>
+        <h3>SPIDEY-CLOCK</h3>
+        <div class="time-display">
+            <div>
+                <div class="time-unit" id="days">--</div>
+                <div class="time-label">DÍAS</div>
+            </div>
+            <div>
+                <div class="time-unit" id="hours">--</div>
+                <div class="time-label">HRS</div>
+            </div>
+            <div>
+                <div class="time-unit" id="minutes">--</div>
+                <div class="time-label">MIN</div>
+            </div>
+            <div>
+                <div class="time-unit" id="seconds">--</div>
+                <div class="time-label">SEG</div>
+            </div>
+        </div>
     </div>
 
     <!-- PARTICULAS -->
@@ -350,7 +363,7 @@
         <div class="info-card">
             <h2>🕸️ ¡GRAN FIESTA!</h2>
             <p class="details">
-                ¡Ven a celebrar mis 2 años con aventuras web-slinging!<br>
+                ¡Ven a celebrar mis 2 años con aventuras!<br>
                 🕷️ Balanceo, juegos y mucha diversión
             </p>
         </div>
@@ -364,28 +377,28 @@
         </div>
 
         <div class="info-card">
-            <h2>🗺️ SE FESTEJARA EN:</h2>
+            <h2>🗺️ UBICACIÓN</h2>
             <div class="map-container">
                 <div class="map-placeholder touch-btn" onclick="openMap()">
-                    📍 TOCA AQUÍ<br>
-                    <small>Allende #555, El Mante, Zapopan, Jalisco</small>
+                    📍 UBICACIÓN<br>
+                    <small>Allende #555, El Mante</small>
                 </div>
             </div>
         </div>
 
         <a href="https://wa.me/523315840862?text=%F0%9F%91%8D%20CONFIRMO%20para%20la%20Spidey-Fiesta%20de%20Mateo%20%F0%9F%90%B7%F0%9F%8E%89%20%F0%9F%8E%89" 
            class="btn-confirm touch-btn" target="_blank">
-            📱 ¡CONFIRMO ASISTENCIA! 
+            ¡CONFIRMO ASISTENCIA! 
         </a>
     </div>
 
     <footer>
-        <strong>¡Thwip! Thwip! 🕸️</strong><br>
+        <strong>🕸️</strong><br>
         <small>Para el súper héroe de la casa ❤️</small>
     </footer>
 
     <script>
-        // COUNTDOWN OPTIMIZADO
+        // COUNTDOWN COMPLETO COMO EL ORIGINAL
         const eventDate = new Date('2026-06-28T15:00:00-06:00').getTime();
         
         function updateCountdown() {
@@ -393,20 +406,27 @@
             const distance = eventDate - now;
             
             if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                document.getElementById('timeDisplay').textContent = 
-                    `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`;
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             } else {
-                document.getElementById('timeDisplay').textContent = '¡HOY! 🎉';
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '¡YA!';
+                document.querySelector('.countdown').style.background = 'linear-gradient(45deg, #00ff88, #25d366)';
             }
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // PARTICULAS LIGERAS (40)
+        // PARTICULAS LIGERAS
         function createParticles() {
             const container = document.getElementById('particles');
             for (let i = 0; i < 40; i++) {
@@ -425,7 +445,7 @@
             createExplosion(25);
         }
 
-        // EXPLOSIÓN OPTIMIZADA
+        // EXPLOSIÓN
         function createExplosion(count = 15) {
             for (let i = 0; i < count; i++) {
                 setTimeout(() => {
@@ -449,23 +469,14 @@
             }
         }
 
-        // BOTÓN WHATSAPP EXPLOSIÓN
+        // EVENTOS
         document.querySelector('.btn-confirm').addEventListener('click', () => {
             createExplosion(30);
         });
 
-        // INICIAR
         window.addEventListener('load', createParticles);
 
-        // TOUCH EVENTS
-        let isPlaying = false;
-        document.getElementById('audioToggle').addEventListener('click', (e) => {
-            e.stopPropagation();
-            isPlaying = !isPlaying;
-            e.target.textContent = isPlaying ? '🔇' : '🔊';
-        });
-
-        // PREVENT ZOOM DOUBLE TAP
+        // PREVENT ZOOM
         let lastTouchEnd = 0;
         document.addEventListener('touchend', (e) => {
             const now = (new Date()).getTime();
